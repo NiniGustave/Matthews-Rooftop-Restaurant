@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matthews Rooftop Restaurant</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: white;
+            color: black;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #FFD700;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .highlight {
+            color: #003366;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        input, select, textarea, button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #003366;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #002244;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+        }
+
+        #reviews {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        #review-list {
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .review-box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        .star-rating {
+        display: flex;
+        direction: row;
+        }
+
+        .star {
+        font-size: 24px;
+        color: #ddd; /* Gray color for unfilled stars */
+        cursor: pointer;
+        transition: color 0.3s;
+        }
+
+        .star:hover,
+        .star.selected {
+        color: gold; /* Highlight gold for filled stars */
+        }
+
+        textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 10px;
+        }
+
+        button {
+        padding: 10px 20px;
+        margin-top: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+      <img src="https://static.wixstatic.com/media/6eb5e0_ab8bcfe7842140529e1ce8a989dc292c~mv2_d_2429_2429_s_4_2.jpeg/v1/crop/x_0,y_187,w_2429,h_2055/fill/w_532,h_450,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/6eb5e0_ab8bcfe7842140529e1ce8a989dc292c~mv2_d_2429_2429_s_4_2.jpeg" alt="Matthews Rooftop Restaurant">
+        <h1>Matthews Rooftop Restaurant</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="menu.html">Menu</a>
+        <a href="reservations.html">Reservation</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section id="menu" style="padding: 40px; text-align: center;">
+  <h2>Our Featured Dishes</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px;">
+
+<!-- Whole Red Snapper -->
+<div style="width: 300px; border: 1px solid #ccc; border-radius: 8px; overflow: hidden;">
+  <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/8a/a1/33/caption.jpg?w=1400&h=-1&s=1" alt="Whole Red Snapper" style="width: 100%; height: 200px; object-fit: cover;">
+  <div style="padding: 15px;">
+    <h3>Whole Red Snapper</h3>
+    <p>$75.00</p>
+    
+    <!-- Star Rating Section -->
+    <div style="margin-top: 15px;">
+      <span class="star-rating" data-rating="0">
+        <i class="star" data-value="1">&#9733;</i>
+        <i class="star" data-value="2">&#9733;</i>
+        <i class="star" data-value="3">&#9733;</i>
+        <i class="star" data-value="4">&#9733;</i>
+        <i class="star" data-value="5">&#9733;</i>
+      </span>
+      <textarea rows="3" name="review_text" style="width: 100%; padding: 8px;" placeholder="Leave a review..." required></textarea><br>
+      
+      <!-- Hidden input for rating -->
+      <input type="hidden" name="rating" id="rating-1" value="">
+      <input type="hidden" name="dish_name" value="Whole Red Snapper">
+
+      <button type="submit" style="padding: 10px 20px; margin-top: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Submit Review
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Penne Pasta with Shrimp -->
+<div style="width: 300px; border: 1px solid #ccc; border-radius: 8px; overflow: hidden;">
+  <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/d5/c4/b8/penne-pasta-with-shrimp.jpg?w=1400&h=-1&s=1" alt="Penne Pasta with Shrimp" style="width: 100%; height: 200px; object-fit: cover;">
+  <div style="padding: 15px;">
+    <h3>Penne Pasta with Shrimp</h3>
+    <p>$55.00</p>
+    
+    <!-- Star Rating Section -->
+    <div style="margin-top: 15px;">
+      <span class="star-rating" data-rating="0">
+        <i class="star" data-value="1">&#9733;</i>
+        <i class="star" data-value="2">&#9733;</i>
+        <i class="star" data-value="3">&#9733;</i>
+        <i class="star" data-value="4">&#9733;</i>
+        <i class="star" data-value="5">&#9733;</i>
+      </span>
+      <textarea rows="3" name="review_text" style="width: 100%; padding: 8px;" placeholder="Leave a review..." required></textarea><br>
+      
+      <!-- Hidden input for rating -->
+      <input type="hidden" name="rating" id="rating-1" value="">
+      <input type="hidden" name="dish_name" value="Penne Pasta with Shrimp">
+
+      <button type="submit" style="padding: 10px 20px; margin-top: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Submit Review
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Cheesecake with Vanilla Ice Cream -->
+<div style="width: 300px; border: 1px solid #ccc; border-radius: 8px; overflow: hidden;">
+  <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/08/c3/b9/caption.jpg?w=1100&h=-1&s=1" alt="Cheesecake with Vanilla Ice Cream" style="width: 100%; height: 200px; object-fit: cover;">
+  <div style="padding: 15px;">
+    <h3>Cheesecake with Vanilla Ice Cream</h3>
+    <p>$25.00</p>
+    
+    <!-- Star Rating Section -->
+    <div style="margin-top: 15px;">
+      <span class="star-rating" data-rating="0">
+        <i class="star" data-value="1">&#9733;</i>
+        <i class="star" data-value="2">&#9733;</i>
+        <i class="star" data-value="3">&#9733;</i>
+        <i class="star" data-value="4">&#9733;</i>
+        <i class="star" data-value="5">&#9733;</i>
+      </span>
+      <textarea rows="3" name="review_text" style="width: 100%; padding: 8px;" placeholder="Leave a review..." required></textarea><br>
+      
+      <!-- Hidden input for rating -->
+      <input type="hidden" name="rating" id="rating-1" value="">
+      <input type="hidden" name="dish_name" value="Cheesecake with Vanilla Ice Cream">
+
+      <button type="submit" style="padding: 10px 20px; margin-top: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Submit Review
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- BBQ Ribs -->
+<div style="width: 300px; border: 1px solid #ccc; border-radius: 8px; overflow: hidden;">
+  <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/f6/8f/71/caption.jpg?w=1400&h=-1&s=1" alt="BBQ Ribs" style="width: 100%; height: 200px; object-fit: cover;">
+  <div style="padding: 15px;">
+    <h3>BBQ Ribs</h3>
+    <p>$45.00</p>
+    
+    <!-- Star Rating Section -->
+    <div style="margin-top: 15px;">
+      <span class="star-rating" data-rating="0">
+        <i class="star" data-value="1">&#9733;</i>
+        <i class="star" data-value="2">&#9733;</i>
+        <i class="star" data-value="3">&#9733;</i>
+        <i class="star" data-value="4">&#9733;</i>
+        <i class="star" data-value="5">&#9733;</i>
+      </span>
+      <textarea rows="3" name="review_text" style="width: 100%; padding: 8px;" placeholder="Leave a review..." required></textarea><br>
+      
+      <!-- Hidden input for rating -->
+      <input type="hidden" name="rating" id="rating-1" value="">
+      <input type="hidden" name="dish_name" value="BBQ Ribs">
+
+      <button type="submit" style="padding: 10px 20px; margin-top: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Submit Review
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Sugar Cane Chicken Wings -->
+<div style="width: 300px; border: 1px solid #ccc; border-radius: 8px; overflow: hidden;">
+  <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/34/e4/16/caption.jpg?w=1400&h=-1&s=1" alt="Sugar Cane Chicken Wings" style="width: 100%; height: 200px; object-fit: cover;">
+  <div style="padding: 15px;">
+    <h3>Sugar Cane Chicken Wings</h3>
+    <p>$60.00</p>
+    
+    <!-- Star Rating Section -->
+    <div style="margin-top: 15px;">
+      <span class="star-rating" data-rating="0">
+        <i class="star" data-value="1">&#9733;</i>
+        <i class="star" data-value="2">&#9733;</i>
+        <i class="star" data-value="3">&#9733;</i>
+        <i class="star" data-value="4">&#9733;</i>
+        <i class="star" data-value="5">&#9733;</i>
+      </span>
+      <textarea rows="3" name="review_text" style="width: 100%; padding: 8px;" placeholder="Leave a review..." required></textarea><br>
+      
+      <!-- Hidden input for rating -->
+      <input type="hidden" name="rating" id="rating-1" value="">
+      <input type="hidden" name="dish_name" value="Sugar Cane Wings">
+
+      <button type="submit" style="padding: 10px 20px; margin-top: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Submit Review
+      </button>
+    </div>
+  </div>
+</div>
+
+    <script>
+    document.querySelectorAll('.star-rating').forEach(rating => {
+      rating.addEventListener('click', function(event) {
+        if (event.target.classList.contains('star')) {
+          let selectedValue = event.target.getAttribute('data-value');
+          // Set the rating based on the clicked star
+          rating.setAttribute('data-rating', selectedValue);
+          
+          // Update the hidden input value for the rating
+          let ratingInput = rating.closest('div').querySelector('input[type="hidden"]#rating-1');
+          ratingInput.value = selectedValue;
+
+          // Update the stars display
+          rating.querySelectorAll('.star').forEach(star => {
+            if (star.getAttribute('data-value') <= selectedValue) {
+              star.classList.add('selected');
+            } else {
+              star.classList.remove('selected');
+            }
+          });
+        }
+      });
+    });
+
+    // Handle form submission
+    const submitButtons = document.querySelectorAll('button[type="submit"]');
+    submitButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent form submission
+            const parentDiv = button.closest('div');
+            const reviewTextarea = parentDiv.querySelector('textarea');
+            const ratingInput = parentDiv.querySelector('input[type="hidden"]#rating-1');
+            
+            if (reviewTextarea.value.trim() && ratingInput.value) {
+                // Hide the review section and show a submission confirmation message
+                parentDiv.innerHTML = '<p>Review Submitted! Thank you for your feedback.</p>';
+            } else {
+                alert("Please provide both a review and a rating.");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
